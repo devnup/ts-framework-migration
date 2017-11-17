@@ -11,10 +11,8 @@ export interface DatabaseMigrationJobOptions {
 }
 
 export default class DatabaseMigrationJob {
-  options: DatabaseMigrationJobOptions;
 
-  constructor(options: DatabaseMigrationJobOptions = {}) {
-    // 'DatabaseMigrationJob', options);
+  constructor(public options: DatabaseMigrationJobOptions = {}) {
   }
 
   /**
@@ -23,9 +21,9 @@ export default class DatabaseMigrationJob {
    * @param server The main server instance.
    */
   public async run(server: Server): Promise<void> {
-    if (!this.options.migration) {
+    if (!this.options.migration && server.logger) {
       server.logger.warn('MainDatabase: No migration pipeline specified');
-    } else {
+    } else if (this.options.migration) {
       const pipeline = this.options.migration.pipeline;
 
       const hasWorkQueue = await Promise.all(pipeline.map((step: BaseDatabaseMigration) => {
@@ -36,9 +34,9 @@ export default class DatabaseMigrationJob {
       const details = hasWorkQueue.reduce((result, next) => ({ ...result, [next.name]: next.count }), {});
 
       if (hasWork && this.options.migration.auto) {
-        server.logger.debug('MainDatabase: Starting migration pipeline', details);
+        if (this.options.verbose && server.logger) {
+          server.logger.debug('MainDatabase: Starting migration pipeline', details);
 
-        if (this.options.verbose) {
           Logger.info(
             '\n-------------------------------------------------------------------------------------------------\n' +
             '                                                               \n' +
@@ -47,6 +45,9 @@ export default class DatabaseMigrationJob {
             hasWorkQueue.map(work => `              ${work.name}:\t\t${work.count} document(s)\n`).join('') +
             '                                                               \n' +
             '\n-------------------------------------------------------------------------------------------------\n');
+
+        } else if (server.logger) {
+          server.logger.debug('MainDatabase: Starting migration pipeline', details);
         }
 
         // Run the migrations in series for expliciting defining the order of the execution

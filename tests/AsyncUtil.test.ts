@@ -1,6 +1,5 @@
 import AsyncUtil from "../lib/util/AsyncUtil";
 
-
 describe('lib.util.AsyncUtil', () => {
 
   it('should map an empty array successfully', async () => {
