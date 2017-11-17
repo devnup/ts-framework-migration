@@ -11,6 +11,9 @@
   "transform": {
     "^.+\\.(ts)$": "./node_modules/ts-jest/preprocessor.js"
   },
+  "setupFiles": [
+    "<rootDir>/tests/setup.ts"
+  ],
   "moduleFileExtensions": [
     "ts",
     "tsx",
@@ -19,6 +22,7 @@
   ],
   "testPathIgnorePatterns": [
     "./build",
-    "./tests/__mock__"
+    "./tests/__mock__",
+    "./tests/setup.ts"
   ]
 }

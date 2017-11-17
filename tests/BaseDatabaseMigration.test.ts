@@ -7,7 +7,6 @@ describe('lib.migration.BaseDatabaseMigration', () => {
     let hasMigrated = false;
     let hasReverted = false;
     class TestSuccessMigration extends BaseDatabaseMigration {
-      s
       constructor() {
         super('TestSuccessMigration');
       }
@@ -178,7 +177,6 @@ describe('lib.migration.BaseDatabaseMigration', () => {
     }
 
     expect(hasCrashed).toBe(true);
-    expect(hasCrashed && hasPassed && hasReverted).toBe(true);
   })
 
 });

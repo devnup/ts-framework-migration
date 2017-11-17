@@ -4,6 +4,7 @@ import AsyncUtil from '../util/AsyncUtil';
 
 export interface DatabaseMigrationJobOptions {
   verbose?: boolean,
+  exitOnError?: boolean;
   migration?: {
     auto: boolean,
     pipeline: any[],
@@ -54,8 +55,12 @@ export default class DatabaseMigrationJob {
         // This may be important because migrations may depend on one another
         await AsyncUtil.mapSeries(pipeline, async (step) => step.run());
       } else if (hasWork) {
-        server.logger.error('Database needs migration', details);
-        process.exit(-1);
+        if (this.options.exitOnError) {
+          server.logger.error('Database needs migration', details);
+          return process.exit(1);
+        } else {
+          throw new Error('Database needs migration');
+        }
       } else {
         Logger.silly(`Database needs no migration, all models are updated`);
       }
