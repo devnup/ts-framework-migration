@@ -66,14 +66,14 @@ export default class UserFullNameMigration extends BaseDatabaseMigration {
     // Checks in the database if there's work to be done
     // Can be also a configuration number, checked against some local cached version
     // In this example, we are searching for users with the old "fullName" attribute
-    return User.count({ fullName: { $exists: true } });
+    return User.count({ fullName: { $exists: true } }) > 0;
   }
 
   public async map(): Promise<any[]> {
     // This method prepares the data to be migrated
     // It's importante to pass the original docs, this will be passed to the revert method
     // In case of errors this is your only hope of reverting the database state without using a backup
-    return User.count({ fullName: { $exists: true } });
+    return User.find({ fullName: { $exists: true } });
   }
 
   public async migrate(data: any[]): Promise<void> {
