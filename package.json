@@ -9,6 +9,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.devnup.com/npm/ts-framework-migration.git"
+  },
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "clean": "./node_modules/.bin/rimraf ./dist/",
