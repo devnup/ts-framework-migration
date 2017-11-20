@@ -8,6 +8,14 @@ A minimalistic framework for typescript based applications, with async/await and
 
 This plugin extends the Startup Jobs to handle database migration steps.
 
+## Getting started
+
+Install the module locally using Yarn.
+
+```bash
+yarn install git+https://gitlab.devnup.com/npm/ts-framework-migration.git
+```
+
 ## Documentation
 
 // TODO
