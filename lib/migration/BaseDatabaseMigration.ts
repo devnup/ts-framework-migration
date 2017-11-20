@@ -6,12 +6,12 @@ export default abstract class BaseDatabaseMigration {
   }
 
   /**
-   * Checks if script finds pending documents in the database to be migrated.
+   * This method determines whether this script has any work to be done.
    */
   public abstract async hasWork(): Promise<boolean>;
 
   /**
-   * Maps the IDs of the documents that should be migrated. Return an empty array to prevent any migration.
+   * Maps the the documents that should be migrated, will only be called is ```hasWork()``` have returned ```true```.
    */
   public abstract async map(): Promise<any[]>;
 
@@ -31,8 +31,6 @@ export default abstract class BaseDatabaseMigration {
 
   /**
    * Runs the migration step safely, reverting the changes in the case of errors.
-   * 
-   * @param db The database instance
    * 
    * @returns List of ids of the documents migrated.
    */

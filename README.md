@@ -155,19 +155,27 @@ export default class UserFullNameMigration extends BaseDatabaseMigration {
 
 ##### async hasWork(): Promise<boolean>
 
-// TODO
+This method determines whether this script has any work to be done. Return ```false``` to prevent any migration.
+
 
 ##### async map(): Promise<any[]<>
 
-// TODO
+Maps the the documents that should be migrated, will only be called is ```hasWork()``` have returned ```true```.
+
 
 ##### async migrate(data: any[]): Promise<void>
 
-// TODO
+Migrates the data mapped previously, this should always be done as a bulk operation.
 
-##### async revert(data: any[]): Promise<void>
+- **data:** The data mapped before by the ```map()``` method.
 
-// TODO
+
+##### async revert(error: Error, data: any[]): Promise<void>
+
+This method will be called when ```migrate()``` throw any error. Here you should revert the data mapped previously. This should always be done as a bulk operation.
+
+- **error:** The error thrown by the  ```migrate()``` method.
+- **data:** The data mapped before by the ```map()``` method.
 
 <br />
 <br />
