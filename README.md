@@ -153,24 +153,24 @@ export default class UserFullNameMigration extends BaseDatabaseMigration {
 - **name:** The migration name for the verbose logging, can be accessed as ```this.name``` inside of the job.
 - **options:** Any internal options for this script, can be accessed as ```this.options``` inside of the job.
 
-##### async hasWork(): Promise<boolean>
+##### async hasWork(): ```Promise<boolean>```
 
 This method determines whether this script has any work to be done. Return ```false``` to prevent any migration.
 
 
-##### async map(): Promise<any[]<>
+##### async map(): ```Promise<any[]>```
 
 Maps the the documents that should be migrated, will only be called is ```hasWork()``` have returned ```true```.
 
 
-##### async migrate(data: any[]): Promise<void>
+##### async migrate(data: any[]): ```Promise<void>```
 
 Migrates the data mapped previously, this should always be done as a bulk operation.
 
 - **data:** The data mapped before by the ```map()``` method.
 
 
-##### async revert(error: Error, data: any[]): Promise<void>
+##### async revert(error: Error, data: any[]): ```Promise<void>```
 
 This method will be called when ```migrate()``` throw any error. Here you should revert the data mapped previously. This should always be done as a bulk operation.
 
