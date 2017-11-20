@@ -138,16 +138,36 @@ export default class UserFullNameMigration extends BaseDatabaseMigration {
 <br /><br />
 ## Documentation
 
-#### new DatabaseMigrationJob(options: DatabaseMigrationJobOptions)
+#### DatabaseMigrationJob
+##### new DatabaseMigrationJob(options: DatabaseMigrationJobOptions)
 
 - **options.verbose:** Enabled verbose logging, defaults to ```false```.
 - **options.migration.auto:** Enabled auto migration in the server startup, defaults to ```false```.
 - **options.migration.pipeline:** The array of migration jobs to be run, the order will be respected.
 
-#### new BaseDatabaseMigration(name: string, options: any)
+
+#### BaseDatabaseMigration
+
+##### new BaseDatabaseMigration(name: string, options: any)
 
 - **name:** The migration name for the verbose logging, can be accessed as ```this.name``` inside of the job.
 - **options:** Any internal options for this script, can be accessed as ```this.options``` inside of the job.
+
+##### async hasWork(): Promise<boolean>
+
+// TODO
+
+##### async map(): Promise<any[]<>
+
+// TODO
+
+##### async migrate(data: any[]): Promise<void>
+
+// TODO
+
+##### async revert(data: any[]): Promise<void>
+
+// TODO
 
 <br />
 <br />
