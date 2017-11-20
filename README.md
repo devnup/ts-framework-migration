@@ -138,6 +138,7 @@ export default class UserFullNameMigration extends BaseDatabaseMigration {
 <br /><br />
 ## Documentation
 
+<br />
 #### DatabaseMigrationJob
 ##### new DatabaseMigrationJob(options: DatabaseMigrationJobOptions)
 
@@ -145,7 +146,7 @@ export default class UserFullNameMigration extends BaseDatabaseMigration {
 - **options.migration.auto:** Enabled auto migration in the server startup, defaults to ```false```.
 - **options.migration.pipeline:** The array of migration jobs to be run, the order will be respected.
 
-
+<br />
 #### BaseDatabaseMigration
 
 ##### new BaseDatabaseMigration(name: string, options: any)
@@ -179,6 +180,13 @@ This method will be called when ```migrate()``` throw any error. Here you should
 
 <br />
 <br />
+## Roadmap
+- Command line interface for automated migration
+- Paginated ```map(skip: number, count: number)``` for parallel or serial execution of large migration steps.
+- Better revertion techniques for running only over the effectively migrated docs, preventing the execution of large unnecessary bulk operations.
+
+<br />
+<br />  
 ## License
 
 The project is licensed under the [MIT License](./LICENSE.md).
