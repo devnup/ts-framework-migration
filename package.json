@@ -23,7 +23,7 @@
     "@types/async": "^2.0.45",
     "async": "^2.6.0",
     "rimraf": "^2.6.2",
-    "ts-framework": "git+https://gitlab.devnup.com/npm/ts-framework.git#dev",
+    "ts-framework": "git+http://github.com/devnup/ts-framework.git#master",
     "typescript": "^2.5.3"
   },
   "devDependencies": {

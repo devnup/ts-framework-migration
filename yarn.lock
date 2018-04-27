@@ -31,6 +31,12 @@
   dependencies:
     "@types/express" "*"
 
+"@types/cors@^2.8.4":
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/@types/cors/-/cors-2.8.4.tgz#50991a759a29c0b89492751008c6af7a7c8267b0"
+  dependencies:
+    "@types/express" "*"
+
 "@types/express-serve-static-core@*":
   version "4.0.56"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.0.56.tgz#4ed556dcff9012cce6b016e214fdc5ef6e99db7d"
@@ -40,6 +46,14 @@
 "@types/express@*", "@types/express@^4.0.37":
   version "4.0.39"
   resolved "https://registry.yarnpkg.com/@types/express/-/express-4.0.39.tgz#1441f21d52b33be8d4fa8a865c15a6a91cd0fa09"
+  dependencies:
+    "@types/body-parser" "*"
+    "@types/express-serve-static-core" "*"
+    "@types/serve-static" "*"
+
+"@types/express@^4.11.1":
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/@types/express/-/express-4.11.1.tgz#f99663b3ab32d04cb11db612ef5dd7933f75465b"
   dependencies:
     "@types/body-parser" "*"
     "@types/express-serve-static-core" "*"
@@ -105,6 +119,12 @@
 "@types/winston@^2.3.6":
   version "2.3.7"
   resolved "https://registry.yarnpkg.com/@types/winston/-/winston-2.3.7.tgz#2ea18b2dc772d459b6af0f587447704df31afec2"
+  dependencies:
+    "@types/node" "*"
+
+"@types/winston@^2.3.9":
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/@types/winston/-/winston-2.3.9.tgz#1ff9f1bb57952fe3d88c1b21c4899ede316a35bc"
   dependencies:
     "@types/node" "*"
 
@@ -2817,6 +2837,10 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
+pjson@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/pjson/-/pjson-1.0.9.tgz#8a9520ce76a4739f8fee91679dad6b065b1c7938"
+
 pkg-dir@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-2.0.0.tgz#f6d5d1109e19d63edf428e0bd57e12777615334b"
@@ -3550,6 +3574,39 @@ tr46@~0.0.3:
 trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
+
+"ts-framework@git+http://github.com/devnup/ts-framework.git#master":
+  version "1.0.0-rc.1"
+  resolved "git+http://github.com/devnup/ts-framework.git#973b62bf4be834dd714ce319ae9884cb7d9cbadf"
+  dependencies:
+    "@types/cors" "^2.8.4"
+    "@types/express" "^4.11.1"
+    "@types/mongoose" "^4.7.23"
+    "@types/winston" "^2.3.9"
+    async "^2.5.0"
+    base64url "^2.0.0"
+    body-parser "^1.18.2"
+    clean-stack "^1.3.0"
+    cookie-parser "^1.4.3"
+    cors "^2.8.4"
+    express "^4.16.2"
+    express-oauth-server "^2.0.0"
+    express-useragent "^1.0.8"
+    git-rev-sync "^1.9.1"
+    hat "^0.0.3"
+    lodash "^4.17.4"
+    method-override "^2.3.10"
+    mongoose "^4.12.1"
+    multer "^1.3.0"
+    pjson "^1.0.9"
+    raven "^2.2.1"
+    request-ip "^2.0.2"
+    rimraf "^2.6.2"
+    source-map-support "^0.5.0"
+    typescript "^2.5.3"
+    urijs "^1.19.0"
+    winston "^2.4.0"
+    winston-raven-sentry "^1.0.1"
 
 "ts-framework@git+https://gitlab.devnup.com/npm/ts-framework.git#dev":
   version "1.0.0-alpha.1"
